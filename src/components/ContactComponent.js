@@ -18,8 +18,7 @@ class Contact extends Component {
     }
 
     handleSubmit(values) {
-        console.log("Current State is:" + JSON.stringify(values))
-        alert("Current State is:" + JSON.stringify(values))
+        this.props.postFeedback(values.firstname, values.lastname, values.telnum, values.email, values.agree, values.contactType, values.message)
         this.props.resetFeedbackForm();
     }
 
@@ -79,15 +78,15 @@ class Contact extends Component {
                                             }}
                                         />
                                         <Errors
-                                        className="text-danger"
-                                        model=".firstname"
-                                        show="touched"
-                                        messages={{
-                                            required: 'Required',
-                                            minLength: 'Must be greater than 2 characters',
-                                            maxLength: 'Must be 15 characters or less'
-                                        }}
-                                     />
+                                            className="text-danger"
+                                            model=".firstname"
+                                            show="touched"
+                                            messages={{
+                                                required: 'Required',
+                                                minLength: 'Must be greater than 2 characters',
+                                                maxLength: 'Must be 15 characters or less'
+                                            }}
+                                        />
                                     </Col>
                                 </Row>
                                 <Row className="form-group">
@@ -99,7 +98,7 @@ class Contact extends Component {
                                             validators={{
                                                 required, minLength: minLength(3), maxLength: maxLength(15)
                                             }}
-                                             />
+                                        />
                                         <Errors
                                             className="text-danger"
                                             model=".lastname"
@@ -109,7 +108,7 @@ class Contact extends Component {
                                                 minLength: 'Must be greater than 2 characters',
                                                 maxLength: 'Must be 15 characters or less'
                                             }}
-                                         />
+                                        />
                                     </Col>
                                 </Row>
                                 <Row className="form-group">
@@ -121,7 +120,7 @@ class Contact extends Component {
                                             validators={{
                                                 required, minLength: minLength(3), maxLength: maxLength(15), isNumber
                                             }}
-                                             />
+                                        />
                                         <Errors
                                             className="text-danger"
                                             model=".telnum"
@@ -132,7 +131,7 @@ class Contact extends Component {
                                                 maxLength: 'Must be 15 numbers or less',
                                                 isNumber: 'Must be a number'
                                             }}
-                                         />
+                                        />
                                     </Col>
                                 </Row>
                                 <Row className="form-group">
@@ -140,11 +139,11 @@ class Contact extends Component {
                                     <Col md={10}>
                                         <Control.text model=".email" id="email" name="email"
                                             placeholder="Email"
-                                            className="form-control" 
+                                            className="form-control"
                                             validators={{
                                                 required, validEmail
                                             }}
-                                             />
+                                        />
                                         <Errors
                                             className="text-danger"
                                             model=".email"
@@ -153,7 +152,7 @@ class Contact extends Component {
                                                 required: 'Required',
                                                 validEmail: 'Invalid Email Address'
                                             }}
-                                         />
+                                        />
                                     </Col>
                                 </Row>
                                 <Row className="form-group">
