@@ -8,7 +8,6 @@ import {
   Media,
 } from "reactstrap";
 import { Link } from "react-router-dom";
-import { baseUrl } from "../shared/baseUrl";
 import { FadeTransform, Stagger } from "react-animation-components";
 
 function About(props) {
@@ -22,7 +21,7 @@ function About(props) {
       >
         <Media tag="li">
           <Media left top>
-            <Media object src={baseUrl + leader.image} alt={leader.name} />
+            <Media object src={leader.image} alt={leader.name} />
           </Media>
           <Media body className="ml-5">
             <Media heading>{leader.name}</Media>
